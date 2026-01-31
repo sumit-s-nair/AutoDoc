@@ -1,0 +1,24 @@
+# Dataset handling
+datasets>=2.14.0
+huggingface-hub>=0.17.0
+
+# Data processing
+pandas>=2.0.0
+pyarrow>=12.0.0
+
+# GitHub scraping
+requests>=2.31.0
+PyGithub>=2.1.0
+
+# Text processing
+tiktoken>=0.5.0
+chardet>=5.2.0
+
+# Utilities
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Validation
+pytest>=7.4.0
+jsonschema>=4.19.0
