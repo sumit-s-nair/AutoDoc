@@ -10,62 +10,79 @@ Ready-to-use, high-quality datasets from the ML community.
 
 | Property | Value |
 |----------|-------|
-| **Size** | ~2 million (code, comment) pairs |
+| **Size** | ~2M code-docstring pairs |
 | **Languages** | Python, JavaScript, Java, Go, Ruby, PHP |
 | **Source** | Open-source GitHub repositories |
-| **License** | Various (MIT, Apache, etc.) |
-| **Access** | [HuggingFace](https://huggingface.co/datasets/code_search_net) |
+| **Access** | [HuggingFace](https://huggingface.co/datasets/code-search-net/code_search_net) |
 
 **What it contains:**
 - Function-level code snippets
 - Associated docstrings/comments
-- Natural language descriptions
 
 **Usage:**
-```python
-from datasets import load_dataset
-dataset = load_dataset("code_search_net", "python")
+```bash
+python scripts/download_datasets.py --datasets codesearchnet --languages python,javascript --max-examples 50000
 ```
 
 ---
 
-### The Vault
+### Code Docstring Corpus
 
 | Property | Value |
 |----------|-------|
-| **Size** | Large-scale multilingual |
-| **Languages** | 10+ programming languages |
-| **Source** | The Stack (permissively licensed) |
-| **License** | Permissive licenses only |
-| **Access** | [HuggingFace](https://huggingface.co/datasets/Fsoft-AIC/the-vault-function) |
+| **Size** | ~148K code-docstring pairs |
+| **Languages** | Python |
+| **Source** | GitHub repositories |
+| **Access** | [HuggingFace](https://huggingface.co/datasets/teven/code_docstring_corpus) |
 
 **What it contains:**
-- Function-level code with documentation
-- High-quality filtering applied
-- Deduplicated entries
+- Python code at top-level and class-level
+- Associated docstrings
 
 **Usage:**
-```python
-from datasets import load_dataset
-dataset = load_dataset("Fsoft-AIC/the-vault-function", split="train")
+```bash
+python scripts/download_datasets.py --datasets docstring --max-examples 50000
 ```
 
 ---
 
-### CoDocBench
+### Python Code Instructions (Alpaca format)
 
 | Property | Value |
 |----------|-------|
-| **Size** | ~10K pairs |
-| **Focus** | Code-documentation alignment |
-| **Source** | Academic research |
-| **License** | Research use |
-| **Paper** | [arXiv:2407.02630](https://arxiv.org/abs/2407.02630) |
+| **Size** | ~18K instruction-output pairs |
+| **Format** | Alpaca instruction-tuning format |
+| **Source** | Curated Python coding tasks |
+| **Access** | [HuggingFace](https://huggingface.co/datasets/iamtarun/python_code_instructions_18k_alpaca) |
 
 **What it contains:**
-- Code changes paired with documentation updates
-- Tracks how docs evolve with code
-- High alignment quality
+- Instructions like "Write a function that..."
+- Complete code solutions
+
+**Usage:**
+```bash
+python scripts/download_datasets.py --datasets instructions --max-examples 18000
+```
+
+---
+
+### The Stack Smol
+
+| Property | Value |
+|----------|-------|
+| **Size** | Subset of The Stack |
+| **Languages** | Multiple programming languages |
+| **Source** | BigCode permissively licensed |
+| **Access** | [HuggingFace](https://huggingface.co/datasets/bigcode/the-stack-smol) |
+
+**What it contains:**
+- Real code files with documentation
+- Filtered for files containing docstrings
+
+**Usage:**
+```bash
+python scripts/download_datasets.py --datasets stack-smol --languages python,javascript
+```
 
 ---
 

@@ -1,0 +1,43 @@
+# Configuration for AutoDoc data pipeline
+
+download:
+  datasets:
+    - name: codesearchnet
+      languages:
+        - python
+        - javascript
+        - java
+        - go
+    - name: thevault
+      max_examples: 50000  # Limit for reasonable training time
+
+scraping:
+  github:
+    min_stars: 500
+    max_repos: 1000
+    languages:
+      - python
+      - javascript
+      - typescript
+      - go
+      - rust
+    # Rate limiting
+    requests_per_hour: 5000  # With token
+    
+preprocessing:
+  # Token limits
+  min_input_tokens: 50
+  max_input_tokens: 4000
+  min_output_tokens: 20
+  max_output_tokens: 2000
+  
+  # Quality filters
+  remove_templates: true
+  require_code_blocks: true
+  min_sections: 2
+  
+splitting:
+  train_ratio: 0.8
+  val_ratio: 0.1
+  test_ratio: 0.1
+  seed: 42
